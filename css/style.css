@@ -1,1 +1,33 @@
 /* file for your css */
+.fruits {
+	background-color: green;
+}
+
+.choices {
+	background-color: gray;
+}
+
+.veggies {
+	background-color: green;
+}
+
+.col-sm-4 {
+	min-height: 300px;
+}
+
+li {
+	list-style: none;
+}
+
+.red {
+	background-color: red;
+}
+
+h1 {
+	text-align: center;
+}
+
+.columnTitle {
+	font-size: 26px;
+	color: white;
+}

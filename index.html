@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="fruits-and-veggies">
     <head>
         <title>Fruit and Veggies</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -9,20 +9,42 @@
         <script src="js/fruits_and_veggies_test.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-controller="sortFood">
         <div class="container">
             <h1>Fruit and Veggies</h1>
-            <div class="row">
-                <div class="col-sm-4">
-                    col 1
+            <div class="row text-center">
+                <div class="col-sm-4 fruits">
+                    <span class="columnTitle">Fruits</span>
+                    <ul class="list-group">
+                        <li ng-class="{red: color === 'red'}" class="list-group-item" ng-repeat="item in fruits">
+                        {{item}}
+                        <button ng-click="moveFruitRight($index)" class="btn right">></button>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-sm-4">
-                    col 2
+                <div class="col-sm-4 choices">
+                    <span class="columnTitle">Choices</span>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="item in allFood track by $index">
+                        <button ng-click="moveLeft($index)" class="btn left"><</button>
+                        {{item}}
+                        <button ng-click="moveRight($index)" class="btn right">></button>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-sm-4">
-                    col 3
+                <div class="col-sm-4 veggies">
+                    <span class="columnTitle">veggies</span>
+                    <ul class="list-group">
+                        <li ng-class="{red: color === 'red'}" class="list-group-item" ng-repeat="item in veggies">
+                        <button ng-click="moveVeggieLeft($index)" class="btn left"><</button>
+                        {{item}}
+                        </li>
+                    </ul>
                 </div>
-            </div>
+             </div>
+             <div class="row text-center">
+             <button ng-if("{{wrongAnswer}} === true") ng-click="refresh()" class="btn btn-lg btn-primary">Try Again</button>
+             </div>
         </div>
     </body>
 </html>
