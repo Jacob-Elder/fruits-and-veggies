@@ -9,7 +9,7 @@ console.log('Veggie count', vegetables.length);
 app.controller('sortFood', ['$scope', function($scope){
 	console.log("controller loaded");
 
-	$scope.allFood = fruits.concat(vegetables);
+	$scope.allFood = fruits.concat(vegetables).sort();
 	$scope.veggies = [];
 	$scope.fruits = [];
 	$scope.color;
